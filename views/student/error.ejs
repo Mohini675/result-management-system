@@ -1,0 +1,40 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <!--Student Error-->
+  <% if (student) { %>
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/search">Dashboard</a></li>
+        <li class="breadcrumb-item active"><%=student.name%></li>
+      </ol>
+    </nav>
+    <h1 class="h4"><%= errorMessage %></h1>
+  </div>
+  <!--/Student Error-->
+  <% } else if (teacher) { %>
+  <!--Teacher Error-->
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/show">Dashboard</a></li>
+        <li class="breadcrumb-item active"><%=teacher.name%></li>
+      </ol>
+    </nav>
+  </div>
+  <h1 class="h4"><%= message %></h1>
+  <% } else { %>
+  <div class="col py-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/"><h4>Login</h4></a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <h1 class="h4"><%= message %></h1>
+  <%}%>
+  <!--/Teacher Error-->
+</div>

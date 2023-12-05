@@ -1,0 +1,37 @@
+<!--Dashboard for Student-->
+<% if (student) { %>
+<div class="col">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/search">Dashboard</a></li>
+      <li class="breadcrumb-item active"><%=student.name%></li>
+    </ol>
+  </nav>
+</div>
+<!--/Dashboard for Student-->
+<% } else if (teacher) { %>
+<!--Dashboard for Teacher-->
+<div class="col">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/show">Dashboard</a></li>
+      <li class="breadcrumb-item active"><%=teacher.name%></li>
+    </ol>
+  </nav>
+</div>
+<!--/Dashboard for Teacher-->
+<% } else { %>
+<div class="col py-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/"><h4>Login</h4></a>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<%}%>
+
+<h1>404</h1>
+<h4>Page NOT Found Error....<i class="bi bi-emoji-frown"></i></h4>

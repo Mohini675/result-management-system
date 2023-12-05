@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Teacher Dashboard</h1>
+    <div class="btn-toolbar mb-2 mb-md 0">
+      <div class="btn-group me-2">
+        <a href="/add" class="btn btn-sm btn-outline-secondary"><i class="bi bi-person-add"></i> Add Record</a>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/_flashMsg') %>
+
+    <div class="container">
+        <!--Show Form Handling-->
+        <form action="/show" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Name</th>
+                        <th>Date of Bith</th>
+                        <th>Score</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0;i<students.length;i++){%>
+
+                    <tr>
+                        <td><%=students[i].rollNo%></td>
+                        <td><%=students[i].name%></td>
+                        <td><%=students[i].dob.toDateString()%></td>
+                        <td><%=students[i].score%></td>
+                        <td>
+                            <a href="/edit/<%=students[i]._id %>" class="btn border-shadow update">
+                                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                            </a>
+                      
+                            <a href="/edit/<%=students[i]._id %>" class="btn border-shadow delete">
+                                <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                    <%} %>
+                </tbody>
+            </table>
+        </form>
+         <!--/Show Form Handling-->
+    </div>
+
+
+<!--Pagination-->
+<% if (students.length > 0) { %>
+  <nav aria-label="Dashboard Pagination">
+    <ul class="pagination justify-content-center mt-5">
+
+      <% if (current == 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/show?page=1" class="page-link">First</a></li>
+      <% } %>
+
+      <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+      <% if(i !== 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+      <% } %>
+
+      <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
+        <% if (i == current) { %>
+          <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/show?page=<%= i %>" class="page-link"><%= i %></a></li>
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+        <% } %>
+      <% } %>
+
+      <% if (current == pages) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/show?page=<%= pages %>" class="page-link">Last</a></li>
+      <% } %>
+
+    </ul>
+  </nav>
+<% } %>
+<!--Pagination-->

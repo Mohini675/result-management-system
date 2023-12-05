@@ -1,0 +1,40 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">About</h1>
+</div>
+
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <!--Dashboard for Student-->
+          <% if (student) { %>
+          <li class="breadcrumb-item"><a href="/search">Dashboard</a></li>
+          <li class="breadcrumb-item active"><%= student.name %></li>
+
+          <% } else { %>
+            <!--Dashboard for Teacher-->
+          <li class="breadcrumb-item"><a href="/show">Dashboard</a></li>
+          <li class="breadcrumb-item active"><%= teacher.name %></li>
+          <% }%>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <img src="img/node.webp" alt="nodejs" width="450" height="280" />
+  <p>Nodejs Express</p>
+
+  <div class="pt-3">
+    <p>
+      This is a simple result management system using Nodejs,Express,ejs and
+      mongodb.
+    </p>
+    <ul>
+      <li>Teacher will create/edit/delete the students.</li>
+      <li>Student will search the results by roll no and date of birth.</li>
+    </ul>
+  </div>
+</div>

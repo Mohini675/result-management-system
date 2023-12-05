@@ -1,0 +1,59 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">Add Student Record</h1>
+</div>
+<%- include('../partials/_flashMsg') %>
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/show">Dashboard</a></li>
+          <li class="breadcrumb-item active">New Student</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!--Add Form Handling-->
+<form action="/add" method="POST" id="add_student">
+  <div class="new_user">
+    <div class="form-group">
+      <label for="rollNo" class="" text-light>Roll No</label>
+      <input type="hidden" name="id" value="" />
+      <input type="text" name="rollNo" value="" placeholder="123.." required />
+    </div>
+    <div class="form-group">
+      <label for="name" class="" text-light>Name</label>
+      <input
+        type="text"
+        name="name"
+        value=""
+        placeholder="John Stonie"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="dob" class="" text-light>Date of Birth</label>
+      <input
+        type="date"
+        id="date"
+        name="dob"
+        value=""
+        placeholder="12/01/2000"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="score" class="" text-light>Score</label>
+      <input type="text" name="score" value="" placeholder="100.." required />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Save Student</button>
+    </div>
+  </div>
+</form>
+<!--/Add Form Handling-->
